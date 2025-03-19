@@ -190,6 +190,11 @@ h3 {
 
 /* Para telas grandes: imagem e texto lado a lado */
 @media (min-width: 768px) {
+    .biography-section {
+        padding: 5rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
     .bio-content {
         flex-direction: row;
         align-items: center;
