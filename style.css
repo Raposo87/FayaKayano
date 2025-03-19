@@ -1,0 +1,268 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 2rem;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.pexels.com/photos/7090883/pexels-photo-7090883.jpeg?auto=compress&cs=tinysrgb&w=600');
+}
+
+.header-content {
+    text-align: center;
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg,  #1DB954, #9b4dca, red, white, #8A2BE2);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientAnimation 8s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.bio-short {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-right: 10px;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .social-icons {
+    display: flex;
+    left: 57%;
+    margin-right: 51%;
+    bottom: 20px;
+  }
+  
+  .social-icons .bx {
+    border-radius: 30%;
+    box-shadow: 2px 2px 3px var(--text-color);
+  }
+  
+  .social-icons a {
+    color: var(--midia-social);
+    font-size: 30px;
+    padding: 2px;
+  }
+  
+  .social-icons a:hover {
+    background-color: #66E1D5;
+    transform: translateY(-3px);
+  }
+
+.gallery-section h1{
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.gallery-section {
+    padding: 5rem 0;
+    overflow: hidden;
+    position: relative;
+    cursor: grab;
+}
+
+.gallery-section:active {
+    cursor: grabbing;
+}
+
+.infinite-scroll {
+    display: flex;
+    width: 200%;
+}
+
+.scroll-container {
+    display: flex;
+    gap: 20px;
+    padding: 0 10px;
+}
+
+.gallery-image {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+    transform: scale(1.05);
+}
+
+.biography-section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(90deg, #1DB954, #9b4dca, red, white, #8A2BE2);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientAnimation 8s ease infinite;
+    text-align: center;
+}
+
+.biography-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #1DB954;
+    text-align: center;
+}
+
+.bio-text p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+/* Novo estilo para artigos biográficos */
+.bio-article {
+    margin-bottom: 3rem;
+}
+
+.bio-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Para telas grandes: imagem e texto lado a lado */
+@media (min-width: 768px) {
+    .bio-content {
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .bio-image {
+        width: 45%;
+        flex-shrink: 0;
+    }
+    
+    .bio-paragraph {
+        flex: 1;
+    }
+    
+    /* Alternando layout para cada artigo */
+    .bio-article:nth-child(even) .bio-content {
+        flex-direction: row-reverse;
+    }
+}
+
+.bio-image {
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    width: 45%;
+    height: auto;
+}
+
+footer {
+    background-color: #0a0a0a;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.footer-column h4 {
+    color: #1DB954;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.footer-column p, .footer-column a {
+    margin-bottom: 0.5rem;
+    color: #a0a0a0;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: #1DB954;
+}
+
+.copyright {
+    margin-top: 2rem;
+    color: #a0a0a0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  
+    .bio-image {
+        width: 100%;
+        
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
