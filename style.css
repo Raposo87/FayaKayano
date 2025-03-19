@@ -21,7 +21,7 @@ header {
     justify-content: flex-end;
     align-items: center;
     padding-bottom: 2rem;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.pexels.com/photos/7090883/pexels-photo-7090883.jpeg?auto=compress&cs=tinysrgb&w=600');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('header.jpg');
 }
 
 .header-content {
@@ -33,7 +33,7 @@ header {
 h1 {
     font-size: 4rem;
     margin-bottom: 1rem;
-    background: linear-gradient(90deg,  #1DB954, #9b4dca, red, white, #8A2BE2);
+    background: linear-gradient(90deg,  #005b20, yellow, red);
     background-size: 300% 300%;
     -webkit-background-clip: text;
     background-clip: text;
@@ -145,7 +145,7 @@ h1 {
 .section-title {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    background: linear-gradient(90deg, #1DB954, #9b4dca, red, white, #8A2BE2);
+    background: linear-gradient(90deg, #005b20, yellow, red);
     background-size: 300% 300%;
     -webkit-background-clip: text;
     background-clip: text;
