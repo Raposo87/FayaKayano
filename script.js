@@ -2,18 +2,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // GSAP setup
     gsap.registerPlugin(ScrollTrigger);
 
-    // Automatic infinite scroll animation
+    // Configuração para rolagem infinita
+    const scrollContainer = document.querySelector('.infinite-scroll');
+    const scrollContent = document.querySelector('.scroll-container');
+    
+    // Criar um clone do conteúdo para efeito infinito
+    const clone = scrollContent.cloneNode(true);
+    clone.classList.remove('original');
+    clone.classList.add('clone');
+    scrollContainer.appendChild(clone);
+    
+    // Calcular largura real do conteúdo original
+    const scrollContentWidth = scrollContent.scrollWidth;
+    
+    // Animação infinita
     const infiniteScroll = gsap.timeline({
         repeat: -1,
         defaults: { ease: 'none' }
     });
 
-    const scrollContainer = document.querySelector('.infinite-scroll');
-    const scrollContentWidth = scrollContainer.scrollWidth;
-
     infiniteScroll.to('.infinite-scroll', {
-        x: `-=${scrollContentWidth / 2}`,
+        x: `-=${scrollContentWidth}`,
         duration: scrollContentWidth / 50,
+        ease: 'none'
     });
 
     // Sistema de controle manual mantendo o movimento automático
@@ -21,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let startX;
     let lastX;
     let dragVelocity = 0;
-    let animationOffset = 0;
 
     function handleDragStart(e) {
         isDragging = true;
@@ -101,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('mouseup', handleDragEnd);
     window.addEventListener('touchend', handleDragEnd);
 
+
     
     // Scroll animations for biography section
     gsap.from('.bio-text h3', {
@@ -164,24 +175,24 @@ document.addEventListener('DOMContentLoaded', function() {
         ease: 'back.out(1.7)'
     });
   
-
-     // Window resize handler to ensure draggable bounds are updated
-    window.addEventListener('resize', function() {
-        draggable[0].kill();
-
-        // Reinitialize draggable with updated bounds
-        Draggable.create(scrollContainer, {
-            type: 'x',
-            edgeResistance: 0.5,
-            // Removido o onDragStart que pausava a animação
-            onDragEnd: function() {
-                // Não faz nada especial ao terminar o arrasto
-            },
-            bounds: {
-                minX: -scrollContentWidth / 2,
-                maxX: 0
-            },
-            throwProps: true
-        });
+  // Ajustar a animação quando a janela for redimensionada
+  window.addEventListener('resize', function() {
+    // Recalcular a largura do conteúdo
+    const newScrollContentWidth = scrollContent.scrollWidth;
+    
+    // Matar a timeline atual
+    infiniteScroll.kill();
+    
+    // Recriar com as novas dimensões
+    const newInfiniteScroll = gsap.timeline({
+        repeat: -1,
+        defaults: { ease: 'none' }
     });
+
+    newInfiniteScroll.to('.infinite-scroll', {
+        x: `-=${newScrollContentWidth}`,
+        duration: newScrollContentWidth / 50,
+        ease: 'none'
+    });
+});
 });
