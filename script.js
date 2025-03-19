@@ -29,10 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
             // Wait a short time before resuming
             setTimeout(() => {
                 // Ensure smooth continuation from current position
-                const currentX = this.x % (scrollContentWidth / 2);
-                gsap.set('.infinite-scroll', { x: currentX });
-                infiniteScroll.invalidate().restart();
-            }, 1000);
+                const currentX = gsap.getProperty(scrollContainer, 'x'); // Pega a posição atual do scrollContainer
+                infiniteScroll.invalidate(); // Reseta a timeline para garantir que a animação comece do zero
+                gsap.set(scrollContainer, { x: currentX }); // Define a posição atual
+                infiniteScroll.restart(); // Reinicia a animação
+            }, 500); // Tempo de espera reduzido para 500ms
         },
         bounds: {
             minX: -scrollContentWidth / 2,
@@ -111,30 +112,31 @@ document.addEventListener('DOMContentLoaded', function() {
         delay: 1.2,
         ease: 'back.out(1.7)'
     });
-    
-    // Window resize handler to ensure draggable bounds are updated
-    window.addEventListener('resize', function() {
-        draggable[0].kill();
 
-        // Reinitialize draggable with updated bounds
-        Draggable.create(scrollContainer, {
-            type: 'x',
-            edgeResistance: 0.5,
-            onDragStart: function() {
-                infiniteScroll.pause();
-            },
-            onDragEnd: function() {
-                setTimeout(() => {
-                    const currentX = this.x % (scrollContentWidth / 2);
-                    gsap.set('.infinite-scroll', { x: currentX });
-                    infiniteScroll.invalidate().restart();
-                }, 1000);
-            },
-            bounds: {
-                minX: -scrollContentWidth / 2,
-                maxX: 0
-            },
-            throwProps: true
-        });
+// Window resize handler to ensure draggable bounds are updated
+window.addEventListener('resize', function() {
+    draggable[0].kill();
+
+    // Reinitialize draggable with updated bounds
+    Draggable.create(scrollContainer, {
+        type: 'x',
+        edgeResistance: 0.5,
+        onDragStart: function() {
+            infiniteScroll.pause();
+        },
+        onDragEnd: function() {
+            setTimeout(() => {
+                const currentX = gsap.getProperty(scrollContainer, 'x'); // Pega a posição atual do scrollContainer
+                infiniteScroll.invalidate(); // Reseta a timeline
+                gsap.set(scrollContainer, { x: currentX }); // Define a posição atual
+                infiniteScroll.restart(); // Reinicia a animação
+            }, 50); // Tempo de espera reduzido para 500ms
+        },
+        bounds: {
+            minX: -scrollContentWidth / 2,
+            maxX: 0
+        },
+        throwProps: true
     });
+});
 });
