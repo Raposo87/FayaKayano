@@ -29,6 +29,10 @@ header {
     max-width: 800px;
     padding: 0 2rem;
 }
+.logo{
+    margin-bottom: -13rem;
+    margin-left: -59rem;
+}
 
 h1 {
     font-size: 4rem;
@@ -265,6 +269,12 @@ footer {
 }
 
 @media (max-width: 768px) {
+
+    .logo {
+        margin-bottom: -5rem;
+        margin-left: -10rem;
+        width: 223px;
+    }
   
     .bio-image {
         width: 100%;
