@@ -45,7 +45,7 @@ h1 {
     animation: gradientAnimation 8s ease infinite;
 }
 p{
-    font-size: 3rem;
+    font-size: ;
 }
 @keyframes gradientAnimation {
     0% {
@@ -206,6 +206,7 @@ h3 {
     
     .bio-paragraph {
         flex: 1;
+        font-size: 3rem;
     }
     
     /* Alternando layout para cada artigo */
@@ -293,7 +294,7 @@ footer {
     h1 {
         font-size: 3rem;
     }
-    p{
+    .biography-section p{
         font-size: 1.5rem;
     }
     
