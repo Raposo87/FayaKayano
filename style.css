@@ -231,6 +231,27 @@ h3 {
     background: linear-gradient(to top, rgba(255, 255, 255, 0.8), transparent);
     pointer-events: none; /* Permite interação com a imagem */
 }
+
+.slide-section {
+    position: relative; /* Contexto de posicionamento */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 80px;
+  }
+  
+  .slide-title {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    color: white;
+    margin: 50px;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    margin-top: 20px; /* Ajuste conforme necessário */
+  }
 .slide-container {
     width: 100%;
     max-width: 600px;
@@ -264,8 +285,8 @@ h3 {
     object-fit: cover;
   }
   .text-container {
-    color: white;
-    margin: auto;
+    margin-top: 20px;
+    margin: 15px 40px;
   }
 
 footer {
@@ -326,7 +347,6 @@ footer {
   
     .bio-image {
         width: 100%;
-        
     }
 
 
