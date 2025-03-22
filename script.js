@@ -222,3 +222,5 @@ setInterval(nextSlide, 3000);
 // Mostra o primeiro slide ao carregar a página
 showSlide(currentSlide);
 //-------slide---------//
+
+
